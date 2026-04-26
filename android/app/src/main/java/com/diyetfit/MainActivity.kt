@@ -1,5 +1,10 @@
 package com.diyetfit
+import android.graphics.Color
 import android.os.Bundle
+
+import com.splashview.SplashView // <-- Add this
+
+import androidx.core.view.WindowCompat
 import com.swmansion.rnscreens.fragment.restoration.RNScreensFragmentFactory
 
 import com.facebook.react.ReactActivity
@@ -21,4 +26,17 @@ class MainActivity : ReactActivity() {
    */
   override fun createReactActivityDelegate(): ReactActivityDelegate =
       DefaultReactActivityDelegate(this, mainComponentName, fabricEnabled)
+
+  override fun onCreate(savedInstanceState: Bundle?) {
+    supportFragmentManager.fragmentFactory = RNScreensFragmentFactory()
+    super.onCreate(savedInstanceState)
+
+    WindowCompat.setDecorFitsSystemWindows(window, false)
+    window.statusBarColor = Color.TRANSPARENT
+    window.navigationBarColor = Color.TRANSPARENT
+    window.isStatusBarContrastEnforced = false
+    window.isNavigationBarContrastEnforced = false
+
+    SplashView.showSplashView(this) // Show the splash after activity creation
+  }
 }
