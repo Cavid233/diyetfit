@@ -22,13 +22,19 @@ const config = {
     activeOpacity: 0.8,
   },
   fonts: {
-    inter: {
-      light: 'Inter 18pt Light',
-      regular: 'Inter 18pt Regular',
-      medium: 'Inter 18pt Medium',
-      semiBold: 'Inter 18pt SemiBold',
-      bold: 'Inter 18pt Bold',
+    manrope: {
+      regular: 'Manrope-Regular',
+      bold: 'Manrope-Bold',
+      extraBold: 'Manrope-ExtraBold',
     },
+    inter: {
+      extraBold: 'Inter_18pt-ExtraBold',
+      bold: 'Inter_18pt-Bold',
+      semiBold: 'Inter_18pt-SemiBold',
+      medium: 'Inter_18pt-Medium',
+      regular: 'Inter_18pt-Regular',
+    },
+
   },
 };
 
