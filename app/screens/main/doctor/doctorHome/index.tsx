@@ -1,0 +1,21 @@
+import { Card } from '@/components';
+import { StyleSheet, View } from 'react-native';
+
+const DoctorHome = () => {
+  return (
+    <View style={styles.container}>
+      <Card>
+        
+      </Card>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+  },
+});
+
+export default DoctorHome;
