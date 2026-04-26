@@ -69,7 +69,7 @@ const LoginScreen = () => {
                   name={
                     showPassword ? SvgXmlIconNames.eye : SvgXmlIconNames.eyeOff
                   }
-                  size={IconSize.xl}
+                  size={IconSize.lg}
                   color={colors.graniteGray}
                 />
               }
@@ -106,6 +106,15 @@ const styles = StyleSheet.create({
     borderRadius: 32,
     gap: 24,
     marginTop: 40,
+  },
+  logoImage: {
+    width: '50%',
+    aspectRatio: 1,
+    alignSelf: 'center',
+    borderRadius: 32,
+    // width: 100,
+    // height: 100,
+    // alignSelf: 'center',
   },
 });
 

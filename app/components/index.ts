@@ -3,5 +3,5 @@ import BaseText from './baseText';
 import { BaseTextVariant } from './baseText';
 import BaseInput from './baseInput';
 import BaseButton from './baseButton';
-
-export { Card, BaseText, BaseTextVariant, BaseInput, BaseButton };
+import BaseImage from './baseImage';
+export { Card, BaseText, BaseTextVariant, BaseInput, BaseButton, BaseImage };
