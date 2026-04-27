@@ -5,10 +5,11 @@ import {
 } from '@react-navigation/native';
 import AppNavigation from './app';
 import { StatusBar } from 'react-native';
-// import {
-//  MAIN_ROUTE_NAMES,
-// ROOT_ROUTE_NAMES,
-// } from './app';
+import {
+  AuthRootParamsList,
+  RootRootParamsList,
+  AUTH_ROUTE_NAMES,
+} from './app';
 
 const navigationRef = createNavigationContainerRef<ParamListBase>();
 
@@ -25,5 +26,6 @@ const Router = () => {
   );
 };
 
-// export { MAIN_ROUTE_NAMES, ROOT_ROUTE_NAMES };
+export type { AuthRootParamsList, RootRootParamsList };
+export { AUTH_ROUTE_NAMES };
 export default Router;

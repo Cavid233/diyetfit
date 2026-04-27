@@ -14,6 +14,9 @@ export interface BaseTextVariantValue {
 interface BaseTextVariantKey {
   interRegular14: BaseTextVariantValue;
   interMedium16: BaseTextVariantValue;
+  interMedium18: BaseTextVariantValue;
+  interMedium20: BaseTextVariantValue;
+
   manropeRegular14: BaseTextVariantValue;
   manropeBold18: BaseTextVariantValue;
   manropeExtraBold36: BaseTextVariantValue;
@@ -30,6 +33,14 @@ export const BaseTextVariant: BaseTextVariantKey = {
   },
   interMedium16: {
     fontSize: 16,
+    fontFamily: config.fonts.inter.medium,
+  },
+  interMedium18: {
+    fontSize: 18,
+    fontFamily: config.fonts.inter.medium,
+  },
+  interMedium20: {
+    fontSize: 20,
     fontFamily: config.fonts.inter.medium,
   },
   manropeBold18: {

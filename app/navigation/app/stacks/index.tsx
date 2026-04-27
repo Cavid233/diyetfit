@@ -1,3 +1,11 @@
+import AuthStackNavigator, {
+  AUTH_ROUTE_NAMES,
+  AuthRootParamsList,
+} from './auth';
+
+export { AUTH_ROUTE_NAMES, AuthStackNavigator };
+export type { AuthRootParamsList };
+
 // import React, { FC } from 'react';
 // import { createStackNavigator } from '@react-navigation/stack';
 // import { NavigatorScreenParams } from '@react-navigation/native';

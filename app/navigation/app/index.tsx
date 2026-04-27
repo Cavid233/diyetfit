@@ -1,11 +1,16 @@
 import { screenOptions } from '@/constants';
 import { createStackNavigator } from '@react-navigation/stack';
 // import { NavigatorScreenParams } from '@react-navigation/native';
-import AuthStackNavigator, { AuthRootParamsList } from './stacks/auth';
 import { NavigatorScreenParams } from '@react-navigation/native';
 // import TabNavigator, { TabRootParamsList } from './tabs';
 // import MainStackNavigator, { MainRootParamsList } from './stacks/main';
 // import { MAIN_ROUTE_NAMES } from './stacks';
+import {
+  AuthStackNavigator,
+  AuthRootParamsList,
+  AUTH_ROUTE_NAMES,
+} from './stacks';
+
 export enum ROOT_ROUTE_NAMES {
   Auth = 'Auth',
 }
@@ -37,5 +42,6 @@ const AppNavigation = () => {
   );
 };
 
-// export { MAIN_ROUTE_NAMES };
+export type { RootRootParamsList, AuthRootParamsList };
+export { AUTH_ROUTE_NAMES };
 export default AppNavigation;

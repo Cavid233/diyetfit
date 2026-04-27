@@ -1,4 +1,10 @@
-import { StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
+import {
+  StyleSheet,
+  TextInput,
+  TextInputProps,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import BaseText, { BaseTextVariant } from '../baseText';
 import { colors, config } from '@/constants';
 
@@ -11,6 +17,8 @@ interface IBaseInputProps {
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   onRightIconPress?: () => void;
+  inputProps?: TextInputProps;
+  onRightLabelPress?: () => void;
 }
 
 const {
@@ -26,6 +34,8 @@ const BaseInput: React.FC<IBaseInputProps> = ({
   leftIcon,
   rightIcon,
   onRightIconPress,
+  inputProps,
+  onRightLabelPress,
 }) => {
   return (
     <View style={styles.container}>
@@ -39,7 +49,7 @@ const BaseInput: React.FC<IBaseInputProps> = ({
           </BaseText>
         )}
         {rightLabel && (
-          <TouchableOpacity onPress={() => {}} hitSlop={hitSlop}>
+          <TouchableOpacity onPress={onRightLabelPress} hitSlop={hitSlop}>
             <BaseText
               variant={BaseTextVariant.interRegular14}
               color={colors.graniteGray}
@@ -58,6 +68,7 @@ const BaseInput: React.FC<IBaseInputProps> = ({
           style={styles.input}
           value={value}
           onChangeText={onChangeText}
+          {...inputProps}
         />
         {rightIcon && (
           <TouchableOpacity onPress={onRightIconPress} hitSlop={hitSlop}>

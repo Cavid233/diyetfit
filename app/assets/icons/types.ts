@@ -7,6 +7,7 @@ export enum SvgXmlIconNames {
   eyeOff = 'eyeOff',
   arrowRight = 'arrowRight',
   eye = 'eye',
+  goBack = 'goBack',
 }
 
 export interface SvgXmlProps extends SvgProps {

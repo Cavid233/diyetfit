@@ -1,3 +1,5 @@
 import LoginScreen from './login';
+import ForgotPasswordScreen from './forgotPassword';
+import OtpVerifyScreen from './otpVerify';
 
-export { LoginScreen };
+export { LoginScreen, ForgotPasswordScreen, OtpVerifyScreen };

@@ -6,6 +6,7 @@ import LockIcon from './lock';
 import EyeOffIcon from './eye-off';
 import ArrowRightIcon from './arrow-right';
 import EyeIcon from './eye';
+import GoBackIcon from './go-back';
 export interface IconSize {
   width: number;
   height: number;
@@ -76,6 +77,8 @@ const getIcon = (name: SvgXmlIconNames | undefined): string | null => {
       return ArrowRightIcon;
     case SvgXmlIconNames.eye:
       return EyeIcon;
+    case SvgXmlIconNames.goBack:
+      return GoBackIcon;
   }
 };
 

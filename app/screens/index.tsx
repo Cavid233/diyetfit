@@ -1,3 +1,3 @@
-import { LoginScreen } from './auth';
+import { LoginScreen, ForgotPasswordScreen, OtpVerifyScreen } from './auth';
 
-export { LoginScreen };
+export { LoginScreen, ForgotPasswordScreen, OtpVerifyScreen };
