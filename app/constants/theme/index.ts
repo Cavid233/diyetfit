@@ -4,7 +4,9 @@ const colors = {
   white: '#FFFFFF',
   gunmetal: '#2E3433',
   hunterGreen: '#365C39',
+  forestCanopy: '#064E3B',
   teaGreen: '#C2EEC0',
+  porcelainMist: '#EBEFED',
   gray: '#808080',
 };
 

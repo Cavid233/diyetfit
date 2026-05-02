@@ -1,4 +1,4 @@
-import { ComponentType, useCallback } from 'react';
+import { useCallback } from 'react';
 import {
   Keyboard,
   StyleSheet,
@@ -17,80 +17,79 @@ interface AuthContainerOptions {
   title: string;
   description: string;
   showHeader?: boolean;
+  children: React.ReactNode;
 }
 
 const {
   button: { hitSlop },
 } = config;
 
-const withAuthContainer = <P extends object>(
-  WrappedComponent: ComponentType<P>,
-  { title, description, showHeader = false }: AuthContainerOptions,
-) => {
-  const AuthContainerComponent = (props: P) => {
-    const navigation = useAppNavigation();
+const AuthContainer = ({
+  title,
+  description,
+  showHeader,
+  children,
+}: AuthContainerOptions) => {
+  const navigation = useAppNavigation();
 
-    const handleGoBack = useCallback(() => {
-      if (!navigation.canGoBack()) {
-        return;
-      }
+  const handleGoBack = useCallback(() => {
+    if (!navigation.canGoBack()) {
+      return;
+    }
 
-      navigation.goBack();
-    }, [navigation]);
+    navigation.goBack();
+  }, [navigation]);
 
-    const handleDismissKeyboard = useCallback(() => {
-      Keyboard.dismiss();
-    }, []);
+  const handleDismissKeyboard = useCallback(() => {
+    Keyboard.dismiss();
+  }, []);
 
-    return (
-      <TouchableWithoutFeedback
-        onPress={handleDismissKeyboard}
-        accessible={false}
-      >
-        <View style={styles.container}>
-          <LinearGradient
-            colors={[colors.teaGreen, colors.white]}
-            style={styles.linearGradient}
-          >
-            <Card style={styles.cardContainer}>
-              {showHeader && (
-                <View style={styles.headerContainer}>
-                  <TouchableOpacity
-                    activeOpacity={0.8}
-                    onPress={handleGoBack}
-                    style={styles.headerButton}
-                    hitSlop={hitSlop}
-                  >
-                    <SvgIcon name={SvgXmlIconNames.goBack} />
-                  </TouchableOpacity>
-                </View>
-              )}
-              <BaseText
-                variant={BaseTextVariant.manropeExtraBold36}
-                color={colors.gunmetal}
-                isCenter
-              >
-                {title}
-              </BaseText>
-              {!!description && (
-                <BaseText
-                  variant={BaseTextVariant.interMedium16}
-                  color={colors.black}
-                  isCenter
-                  style={styles.descriptionText}
+  return (
+    <TouchableWithoutFeedback
+      onPress={handleDismissKeyboard}
+      accessible={false}
+    >
+      <View style={styles.container}>
+        <LinearGradient
+          colors={[colors.teaGreen, colors.white]}
+          style={styles.linearGradient}
+        >
+          <Card style={styles.cardContainer}>
+            {showHeader && (
+              <View style={styles.headerContainer}>
+                <TouchableOpacity
+                  activeOpacity={0.8}
+                  onPress={handleGoBack}
+                  style={styles.headerButton}
+                  hitSlop={hitSlop}
                 >
-                  {description}
-                </BaseText>
-              )}
-              <WrappedComponent {...props} />
-            </Card>
-          </LinearGradient>
-        </View>
-      </TouchableWithoutFeedback>
-    );
-  };
-
-  return AuthContainerComponent;
+                  <SvgIcon name={SvgXmlIconNames.goBack} />
+                </TouchableOpacity>
+              </View>
+            )}
+            <BaseText
+              variant={BaseTextVariant.manropeExtraBold36}
+              color={colors.gunmetal}
+              isCenter
+            >
+              {title}
+            </BaseText>
+            {!!description && (
+              <BaseText
+                variant={BaseTextVariant.interMedium16}
+                color={colors.black}
+                isCenter
+                style={styles.descriptionText}
+              >
+                {description}
+              </BaseText>
+            )}
+            {children}
+          </Card>
+        </LinearGradient>
+      </View>
+    </TouchableWithoutFeedback>
+  );
 };
 
 const styles = StyleSheet.create({
@@ -119,4 +118,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withAuthContainer;
+export default AuthContainer;

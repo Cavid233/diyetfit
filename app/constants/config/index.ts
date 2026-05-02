@@ -26,6 +26,7 @@ const config = {
       regular: 'Manrope-Regular',
       bold: 'Manrope-Bold',
       extraBold: 'Manrope-ExtraBold',
+      medium: 'Manrope-Medium',
     },
     inter: {
       extraBold: 'Inter_18pt-ExtraBold',

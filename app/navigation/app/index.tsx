@@ -9,17 +9,23 @@ import {
   AuthStackNavigator,
   AuthRootParamsList,
   AUTH_ROUTE_NAMES,
+  MainRootParamsList,
+  MainStackNavigator,
 } from './stacks';
+import DoctorTabNavigator, { DoctorTabRootParamsList } from './tabs/doctor';
+// import MainStackNavigator, { MainRootParamsList } from './stacks/main';
 
 export enum ROOT_ROUTE_NAMES {
   Auth = 'Auth',
+  Main = 'Main',
+  DoctorTab = 'DoctorTab',
 }
 
 type RootRootParamsList = {
   Auth: NavigatorScreenParams<AuthRootParamsList>;
 
-  //   Tab: NavigatorScreenParams<TabRootParamsList>;
-  //   Main: NavigatorScreenParams<MainRootParamsList>;
+  DoctorTab: NavigatorScreenParams<DoctorTabRootParamsList>;
+  Main: NavigatorScreenParams<MainRootParamsList>;
 };
 
 const Stack = createStackNavigator<RootRootParamsList>();
@@ -27,13 +33,15 @@ const Stack = createStackNavigator<RootRootParamsList>();
 const AppNavigation = () => {
   return (
     <Stack.Navigator screenOptions={screenOptions}>
-      {/* <Stack.Screen name={ROOT_ROUTE_NAMES.Tab} component={TabNavigator} /> */}
+      <Stack.Screen
+        name={ROOT_ROUTE_NAMES.DoctorTab}
+        component={DoctorTabNavigator}
+      />
 
-      {/* <Stack.Screen
+      <Stack.Screen
         name={ROOT_ROUTE_NAMES.Main}
-        component={MainStackNav
-        igator}
-      /> */}
+        component={MainStackNavigator}
+      />
       <Stack.Screen
         name={ROOT_ROUTE_NAMES.Auth}
         component={AuthStackNavigator}

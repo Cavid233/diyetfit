@@ -8,6 +8,18 @@ export enum SvgXmlIconNames {
   arrowRight = 'arrowRight',
   eye = 'eye',
   goBack = 'goBack',
+  selectedHome = 'selectedHome',
+  unselectedHome = 'unselectedHome',
+  clients = 'clients',
+  groups = 'groups',
+  reviews = 'reviews',
+  newClient = 'newClient',
+  newGroup = 'newGroup',
+  broadcast = 'broadcast',
+  unselectedGroups = 'unselectedGroups',
+  selectedGroups = 'selectedGroups',
+  unselectedNotification = 'unselectedNotification',
+  selectedNotification = 'selectedNotification',
 }
 
 export interface SvgXmlProps extends SvgProps {

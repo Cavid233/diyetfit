@@ -12,7 +12,7 @@ import { RouteProp, useRoute } from '@react-navigation/native';
 
 import { IconSize, SvgXmlIconNames } from '@/assets';
 import { BaseButton, BaseText, BaseTextVariant } from '@/components';
-import { withAuthContainer } from '@/containers';
+import { AuthContainer } from '@/containers';
 import { colors } from '@/constants';
 import { AuthRootParamsList } from '@/navigation';
 import { BaseButtonTypeEnum } from '@/types';
@@ -23,7 +23,7 @@ const OTP_INPUT_KEYS = Array.from(
   (_, index) => `otp-input-${index}`,
 );
 
-const OtpVerifyScreenContent = () => {
+const OtpVerifyScreen = () => {
   const route = useRoute<RouteProp<AuthRootParamsList, 'OtpVerify'>>();
   const inputRefs = useRef<Array<TextInput | null>>([]);
   const [otpValues, setOtpValues] = useState<string[]>(
@@ -81,7 +81,11 @@ const OtpVerifyScreenContent = () => {
       index: number,
       event: NativeSyntheticEvent<TextInputKeyPressEventData>,
     ) => {
-      if (event.nativeEvent.key !== 'Backspace' || otpValues[index] || index < 1) {
+      if (
+        event.nativeEvent.key !== 'Backspace' ||
+        otpValues[index] ||
+        index < 1
+      ) {
         return;
       }
 
@@ -139,71 +143,72 @@ const OtpVerifyScreenContent = () => {
   }, [email, focusInput]);
 
   return (
-    <View style={styles.formContainer}>
-      <BaseText
-        variant={BaseTextVariant.interMedium16}
-        color={colors.black}
-        isCenter
-        style={styles.descriptionText}
-      >
-        {`${email} ünvanına göndərilən 4 rəqəmli kodu daxil edin.`}
-      </BaseText>
-      <View style={styles.codeHeader}>
-        <BaseText
-          variant={BaseTextVariant.interRegular14}
-          color={colors.graniteGray}
-        >
-          Təsdiq Kodu
-        </BaseText>
-      </View>
-      <View style={styles.codeInputsContainer}>
-        {OTP_INPUT_KEYS.map((inputKey, index) => (
-          <TextInput
-            key={`${inputKey}`}
-            ref={inputRefHandlers[index]}
-            value={otpValues[index]}
-            onChangeText={inputChangeHandlers[index]}
-            onKeyPress={inputKeyPressHandlers[index]}
-            keyboardType="number-pad"
-            maxLength={OTP_INPUT_LENGTH}
-            textAlign="center"
-            style={styles.codeInput}
-            cursorColor={colors.hunterGreen}
-            selectionColor={colors.hunterGreen}
-            autoCorrect={false}
-            autoComplete="sms-otp"
-            textContentType="oneTimeCode"
-            selectTextOnFocus
-          />
-        ))}
-      </View>
-      <BaseButton
-        title="Təsdiqlə"
-        onPress={handleSubmit}
-        type={BaseButtonTypeEnum.primary}
-        rightIcon={SvgXmlIconNames.arrowRight}
-        rightIconSize={IconSize.sm}
-      />
-      <TouchableOpacity
-        activeOpacity={0.8}
-        onPress={handleResendCode}
-        style={styles.resendButton}
-      >
+    <AuthContainer title="Kodu Təsdiqləyin" description="" showHeader={true}>
+      <View style={styles.formContainer}>
         <BaseText
           variant={BaseTextVariant.interMedium16}
-          color={colors.hunterGreen}
+          color={colors.black}
           isCenter
+          style={styles.descriptionText}
         >
-          Kodu yenidən göndər
+          {`${email} ünvanına göndərilən 4 rəqəmli kodu daxil edin.`}
         </BaseText>
-      </TouchableOpacity>
-    </View>
+        <View style={styles.codeHeader}>
+          <BaseText
+            variant={BaseTextVariant.interRegular14}
+            color={colors.graniteGray}
+          >
+            Təsdiq Kodu
+          </BaseText>
+        </View>
+        <View style={styles.codeInputsContainer}>
+          {OTP_INPUT_KEYS.map((inputKey, index) => (
+            <TextInput
+              key={`${inputKey}`}
+              ref={inputRefHandlers[index]}
+              value={otpValues[index]}
+              onChangeText={inputChangeHandlers[index]}
+              onKeyPress={inputKeyPressHandlers[index]}
+              keyboardType="number-pad"
+              maxLength={OTP_INPUT_LENGTH}
+              textAlign="center"
+              style={styles.codeInput}
+              cursorColor={colors.hunterGreen}
+              selectionColor={colors.hunterGreen}
+              autoCorrect={false}
+              autoComplete="sms-otp"
+              textContentType="oneTimeCode"
+              selectTextOnFocus
+            />
+          ))}
+        </View>
+        <BaseButton
+          title="Təsdiqlə"
+          onPress={handleSubmit}
+          type={BaseButtonTypeEnum.primary}
+          rightIcon={SvgXmlIconNames.arrowRight}
+          rightIconSize={IconSize.sm}
+        />
+        <TouchableOpacity
+          activeOpacity={0.8}
+          onPress={handleResendCode}
+          style={styles.resendButton}
+        >
+          <BaseText
+            variant={BaseTextVariant.interMedium16}
+            color={colors.hunterGreen}
+            isCenter
+          >
+            Kodu yenidən göndər
+          </BaseText>
+        </TouchableOpacity>
+      </View>
+    </AuthContainer>
   );
 };
 
 const styles = StyleSheet.create({
-  descriptionText: {
-  },
+  descriptionText: {},
   formContainer: {
     padding: 32,
     marginTop: 40,
@@ -234,10 +239,10 @@ const styles = StyleSheet.create({
   },
 });
 
-const OtpVerifyScreen = withAuthContainer(OtpVerifyScreenContent, {
-  title: 'Kodu Təsdiqləyin',
-  description: '',
-  showHeader: true,
-});
+// const OtpVerifyScreen = withAuthContainer(OtpVerifyScreenContent, {
+//   title: 'Kodu Təsdiqləyin',
+//   description: '',
+//   showHeader: true,
+// });
 
 export default OtpVerifyScreen;

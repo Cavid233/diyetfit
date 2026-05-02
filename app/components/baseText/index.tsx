@@ -13,22 +13,43 @@ export interface BaseTextVariantValue {
 
 interface BaseTextVariantKey {
   interRegular14: BaseTextVariantValue;
+  interRegular16: BaseTextVariantValue;
+  interMedium14: BaseTextVariantValue;
   interMedium16: BaseTextVariantValue;
   interMedium18: BaseTextVariantValue;
   interMedium20: BaseTextVariantValue;
 
+  manropeRegular12: BaseTextVariantValue;
   manropeRegular14: BaseTextVariantValue;
+  manropeMedium12: BaseTextVariantValue;
   manropeBold18: BaseTextVariantValue;
+  manropeBold30: BaseTextVariantValue;
   manropeExtraBold36: BaseTextVariantValue;
 }
 
 export const BaseTextVariant: BaseTextVariantKey = {
+  manropeRegular12: {
+    fontSize: 12,
+    fontFamily: config.fonts.manrope.regular,
+  },
   manropeRegular14: {
     fontSize: 14,
     fontFamily: config.fonts.manrope.regular,
   },
+  interMedium14: {
+    fontSize: 14,
+    fontFamily: config.fonts.inter.medium,
+  },
+  manropeMedium12: {
+    fontSize: 12,
+    fontFamily: config.fonts.manrope.medium,
+  },
   interRegular14: {
     fontSize: 14,
+    fontFamily: config.fonts.inter.regular,
+  },
+  interRegular16: {
+    fontSize: 16,
     fontFamily: config.fonts.inter.regular,
   },
   interMedium16: {
@@ -45,6 +66,10 @@ export const BaseTextVariant: BaseTextVariantKey = {
   },
   manropeBold18: {
     fontSize: 18,
+    fontFamily: config.fonts.manrope.bold,
+  },
+  manropeBold30: {
+    fontSize: 30,
     fontFamily: config.fonts.manrope.bold,
   },
   manropeExtraBold36: {

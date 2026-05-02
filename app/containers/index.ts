@@ -1,3 +1,4 @@
-import withAuthContainer from './authContainer';
+import AuthContainer from './authContainer';
+import MainContainer from './mainContainer';
 
-export { withAuthContainer };
+export { AuthContainer, MainContainer };

@@ -7,6 +7,20 @@ import EyeOffIcon from './eye-off';
 import ArrowRightIcon from './arrow-right';
 import EyeIcon from './eye';
 import GoBackIcon from './go-back';
+import UnselectedHomeIcon from './unselected-home';
+import SelectedHomeIcon from './selected-home';
+import ClientsIcon from './clients';
+import GroupsIcon from './groups';
+import ReviewsIcon from './reviews';
+import NewClientIcon from './new-client';
+import NewGroupIcon from './new-group';
+import BroadcastIcon from './broadcast';
+
+import UnselectedGroupsIcon from './unselected-groups';
+import SelectedGroupsIcon from './selected-groups';
+import UnselectedNotificationIcon from './unselected-notification';
+import SelectedNotificationIcon from './selected-notification';
+
 export interface IconSize {
   width: number;
   height: number;
@@ -79,6 +93,31 @@ const getIcon = (name: SvgXmlIconNames | undefined): string | null => {
       return EyeIcon;
     case SvgXmlIconNames.goBack:
       return GoBackIcon;
+    case SvgXmlIconNames.unselectedHome:
+      return UnselectedHomeIcon;
+    case SvgXmlIconNames.selectedHome:
+      return SelectedHomeIcon;
+    case SvgXmlIconNames.clients:
+      return ClientsIcon;
+    case SvgXmlIconNames.groups:
+      return GroupsIcon;
+    case SvgXmlIconNames.reviews:
+      return ReviewsIcon;
+
+    case SvgXmlIconNames.newClient:
+      return NewClientIcon;
+    case SvgXmlIconNames.newGroup:
+      return NewGroupIcon;
+    case SvgXmlIconNames.broadcast:
+      return BroadcastIcon;
+    case SvgXmlIconNames.unselectedGroups:
+      return UnselectedGroupsIcon;
+    case SvgXmlIconNames.selectedGroups:
+      return SelectedGroupsIcon;
+    case SvgXmlIconNames.unselectedNotification:
+      return UnselectedNotificationIcon;
+    case SvgXmlIconNames.selectedNotification:
+      return SelectedNotificationIcon;
   }
 };
 
